@@ -1,0 +1,7 @@
+FROM python
+ADD requirements.txt /
+ADD library.py /
+WORKDIR /
+RUN pip install -r requirements.txt
+ENV FLASK_APP=library  
+CMD ["flask", "run", "--host", "0.0.0.0"]

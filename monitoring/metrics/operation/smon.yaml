@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: prom-test-mon
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: prom-test
+  endpoints:
+  - targetPort: 5000
+    interval: "10s"
+    # path: "/metrics"
