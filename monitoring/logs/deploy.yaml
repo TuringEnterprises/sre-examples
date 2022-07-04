@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: log-test
+  name: log-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-test
+  template:
+    metadata:
+      labels:
+        app: log-test
+    spec:
+      containers:
+      - image: mingrammer/flog
+        command:
+          - flog
+          - -d 
+          - 1s 
+          - -l
+        imagePullPolicy: Always
+        name: log-test
+        resources: 
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "128Mi"
+            cpu: "100m"      
