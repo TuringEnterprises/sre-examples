@@ -1,0 +1,6 @@
+FROM python
+RUN pip install flask requests opentelemetry-distro
+ADD service_demo.py /
+WORKDIR /
+ENV FLASK_APP=service_demo  
+CMD ["flask", "run", "--host", "0.0.0.0"]
