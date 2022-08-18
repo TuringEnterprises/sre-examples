@@ -13,13 +13,13 @@
 
     FLASK_APP=vanilla opentelemetry-instrument --traces_exporter console flask run
 
-## run auto instrument with manual instrumentation
+## run auto instrumentation with partial manual instrumentation
 
     FLASK_APP=manual opentelemetry-instrument --traces_exporter console flask run
 
 ## run full manual instrumentation
 
-    FLASK_APP=full_manual flask run   ## this only has part of the function traced
+    FLASK_APP=full_manual flask run   ## this only has part of the function instrumented
     FLASK_APP=full_manual2 flask run  ## this also have access to "/" traced
 
 ## deploy service demo
